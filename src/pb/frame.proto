@@ -1,0 +1,43 @@
+package pb;
+
+syntax = "proto3";
+
+/**
+ * 由于服务端使用protostuff进行解码
+ * 无法处理 proto3 版本下的嵌套对象
+ * 所以将所有对象打平放在Frame中
+ */
+// import "request.proto";
+// import "payload.proto";
+// import "command.proto";
+
+message Frame {
+
+    enum Type {
+        REQUEST = 1;
+        RESPONSE = 2;
+        COMMAND = 3;
+    }
+
+    required int32 magic = 1;
+    required string id = 2;
+    required Type type = 3;
+
+    // request部分
+    optional string serviceName = 4;
+    optional string methodName = 5;
+    // fixme 如果这里使用 map<string, string> 
+    // 则java服务端通过protostuff无法反序列化
+    optional string paramJson = 6;
+
+    // payload部分
+    optional bool success = 7;
+    optional int32 code = 8;
+    optional string msg = 9;
+    optional string resultJson = 10;
+
+    // command部分
+    optional string commandName = 11;
+    optional string contentJson = 12;
+
+}

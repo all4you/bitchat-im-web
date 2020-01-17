@@ -1,0 +1,10 @@
+package pb;
+
+syntax = "proto3";
+
+message Payload {
+    required bool success = 1;
+    required int32 code = 2;
+    required string msg = 3;
+    map<string, string> result = 4;
+}

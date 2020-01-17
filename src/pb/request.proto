@@ -1,0 +1,9 @@
+package pb;
+
+syntax = "proto3";
+
+message Request {
+    required string serviceName = 1;
+    optional string methodName = 2;
+    map<string, string> params = 3;
+}

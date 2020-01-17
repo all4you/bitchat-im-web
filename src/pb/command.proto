@@ -1,0 +1,8 @@
+package pb;
+
+syntax = "proto3";
+
+message Command {
+    optional string commandName = 1;
+    map<string, string> content = 2;
+}
