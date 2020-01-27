@@ -1,21 +1,25 @@
 # bitchat-im-web
 
-> bitchat-im-web
+**bitchat-im-web** 是一个基于 bitchat 实现的一个 IM 应用的web端
 
-## Build Setup
+
+## 快速开始
+
+### 启动服务端
+
+把依赖的 [bitchat](https://github.com/all4you/bitchat-im) 项目下载到本地，然后启动服务端
+
+
+### 启动web端
+
+1、安装依赖
 
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2、启动
+
+``` bash
+npm start
+```
