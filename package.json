@@ -5,6 +5,7 @@
   "author": "wh_all4you@hotmail.com",
   "private": true,
   "scripts": {
+    "install-dev": "npm install –save-dev",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",

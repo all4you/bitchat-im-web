@@ -2,33 +2,32 @@
   <div class="wrapper box">
     <div class="hd">
       <h2>BitChat</h2>
-      <p>与世界分享你的分享</p>
+      <p>创建与世界的链接</p>
     </div>
     <div class="bd">
-      <el-form :model="loginForm" :rules="loginRule" ref="loginForm">
+      <el-form :model="registerForm" :rules="loginRule" ref="registerForm">
         <el-form-item label="账号" prop="userName">
-          <el-input type="userName" v-model="loginForm.userName" placeholder="账号"></el-input>
+          <el-input type="userName" v-model="registerForm.userName" placeholder="账号"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input v-model="loginForm.password" placeholder="密码" type="password"></el-input>
+          <el-input v-model="registerForm.password" placeholder="密码" type="password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="login('loginForm')" class="submitBtn" :loading="loading">{{btnText}}</el-button>
+          <el-button type="primary" @click="register('registerForm')" class="submitBtn" :loading="loading">{{btnText}}</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="ft">
-      <router-link to="/register">还没有账号？马上注册</router-link>
+      <router-link to="/login">已有账号，现在登录</router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Login",
   data() {
     return {
-      loginForm: {
+      registerForm: {
         userName: "",
         password: ""
       },
@@ -40,12 +39,12 @@ export default {
         password: [{ required: true, message: "密码不可为空", trigger: "blur" }]
       },
       loading : false,
-      btnText : '登 录'
+      btnText : '注 册'
     };
   },
   created() {},
   methods: {
-    login(formName) {
+    register(formName) {
       if (!this.$bs.active()) {
         this.$message.error("当前通道还未建立连接");
         return;
@@ -54,15 +53,20 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let params = {
-            userName: this.loginForm.userName,
-            password: this.loginForm.password
+            userName: this.registerForm.userName,
+            password: this.registerForm.password
           };
           this.doLoading(true);
-          this.$bs.request("login", params, frameObj => {
+          this.$bs.request("register", params, frameObj => {
             let success = frameObj.success;
             if (success) {
-              // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-              this.$router.push("/chat");
+              this.$alert('注册成功，点击确定调转到登录页面', '注册成功', {
+                confirmButtonText: '确定',
+                callback: action => {
+                  // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
+                  this.$router.push("/login");
+                }
+              });
             } else {
               this.$message.error(frameObj.msg);
               this.doLoading(false);
