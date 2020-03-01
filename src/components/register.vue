@@ -95,55 +95,55 @@ export default {
 
 <style lang="scss" scoped>
 .box {
-  border: 1px solid #dcdfe6;
-  width: 350px;
-  margin: 10px auto;
-  padding: 30px 35px 35px 35px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  box-shadow: 0 0 25px #909399;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, SimSun, sans-serif;
-  font-size: 18px;
-}
-.wrapper .hd {
-  width: 300px;
-}
-.wrapper .hd h2 {
-  font-weight: 400;
-  color: #20a0ff;
-}
-.wrapper .hd p {
-  font-size: 15px;
-  color: #1f2f3d;
-}
-.wrapper .bd {
-  width: 300px;
-}
-.wrapper .bd .submitBtn {
-  width: 100%;
-}
-.wrapper .bd .el-form-item:last-child {
-  margin-bottom: 10px;
-}
-.wrapper .ft {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 300px;
-}
-.wrapper .ft a {
-  font-size: 14px;
-  text-decoration: none;
-  color: #20a0ff;
-}
+    border: 1px solid #dcdfe6;
+    width: 350px;
+    margin: 10px auto;
+    padding: 30px 35px 35px 35px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 0 0 25px #909399;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+      Microsoft YaHei, SimSun, sans-serif;
+    font-size: 18px;
+  }
+  .wrapper .hd {
+    width: 300px;
+  }
+  .wrapper .hd h2 {
+    font-weight: 400;
+    color: #20a0ff;
+  }
+  .wrapper .hd p {
+    font-size: 15px;
+    color: #1f2f3d;
+  }
+  .wrapper .bd {
+    width: 300px;
+  }
+  .wrapper .bd .submitBtn {
+    width: 100%;
+  }
+  .wrapper .bd .el-form-item:last-child {
+    margin-bottom: 10px;
+  }
+  .wrapper .ft {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+  }
+  .wrapper .ft a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #20a0ff;
+  }
 </style>

@@ -9,7 +9,7 @@
       <el-col :span="3" class="chat-list">
         <div class="grid-content bg-purple-light">
           <div tag="li" v-for="(item,index) in onlineUsers" :key="index" @click="showP2PChat(item)">
-            <div class="user-item">{{item.userName}}({{item.userId}})</div>
+            <div class="user-item">{{item.userName}}</div>
           </div>
         </div>
       </el-col>
@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import p2pChat from "@/components/p2pchat.vue";
+import p2pChat from "@/components/p2pChat.vue";
 export default {
   data() {
     return {
       onlineUsers: [], // 除我之外的所有在线的用户
       chatMsgsMap: new Map(), // 我与所有在线用户的聊天数据
       myId: "", // 登录之后需要将我的session信息存储起来
-      myName: "",
+      myName: "这里是myName",
       p2pChatInfo: null, // 我与某个用户的聊天信息
       currentPartenerId: null
     };
@@ -62,6 +62,7 @@ export default {
     },
     waitData() {
       this.$bs.channelRead(frameObj => {
+        console.log("channelRead===>frameObj:", frameObj);
         let type = frameObj.type;
         if (type == this.$bs.type().COMMAND) {
           let commandName = frameObj.commandName;
@@ -121,6 +122,59 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.box {
+  border: 1px solid #dcdfe6;
+  width: 350px;
+  margin: 10px auto;
+  padding: 30px 35px 35px 35px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0 0 25px #909399;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+  font-size: 18px;
+}
+.wrapper .hd {
+  width: 300px;
+}
+.wrapper .hd h2 {
+  font-weight: 400;
+  color: #20a0ff;
+}
+.wrapper .hd p {
+  font-size: 15px;
+  color: #1f2f3d;
+}
+.wrapper .bd {
+  width: 300px;
+}
+.wrapper .bd .submitBtn {
+  width: 100%;
+}
+.wrapper .bd .el-form-item:last-child {
+  margin-bottom: 10px;
+}
+.wrapper .ft {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+}
+.wrapper .ft a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #20a0ff;
+}
+
 h1,
 h2 {
   font-weight: normal;
