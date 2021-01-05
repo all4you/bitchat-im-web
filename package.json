@@ -19,7 +19,7 @@
     "protobufjs": "^6.8.6",
     "flake-idgen": "^1.1.2",
     "biguint-format": "^1.0.1",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "element-ui": "^2.13.0"
   },
   "devDependencies": {
