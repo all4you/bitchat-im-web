@@ -16,7 +16,7 @@
     "vue-router": "^3.0.1",
     "@types/node": "^12.12.17",
     "@types/long": "^4.0.0",
-    "protobufjs": "^6.8.6",
+    "protobufjs": "^6.11.3",
     "flake-idgen": "^1.1.2",
     "biguint-format": "^1.0.1",
     "axios": "^0.19.1",
